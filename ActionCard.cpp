@@ -13,7 +13,7 @@ ActionCard::ActionCard() {
 
 bool ActionCard::isPlayable() {
   bool drawn = getDrawn();
-  if (drawn == false) {
+  if (getDrawn() == false) {
     return false;
   }
 
@@ -22,7 +22,7 @@ bool ActionCard::isPlayable() {
   std::regex drawRegex("DRAW (\\d+) CARD(S)?");
   std::regex playRegex("PLAY (\\d+) CARD(S)?");
   std::regex reverseRegex("REVERSE HAND");
-  std::regex sRegex("S");
+  std::regex sRegex("SWAP HAND WITH OPPONENT");
 
   if (std::regex_match(instruction, drawRegex) ||
       std::regex_match(instruction, playRegex) ||
@@ -35,17 +35,18 @@ bool ActionCard::isPlayable() {
 }
 
 void ActionCard::Print() const {
-  std::cout << "Type: " << getType() << std::endl;
-  std::cout << "Instruction: " << getInstruction() << std::endl;
+  std::string output = "Type: " + getType() + "\n";
+  output += "Instruction: " + getInstruction() + "\n";
 
   const int *imgData = getImageData();
+  output += "Card:\n";
   if (imgData) {
-    std::cout << "Image Data: ";
     for (int i = 0; imgData[i] != 0; i++) {
-      std::cout << imgData[i] << " ";
+      output += std::to_string(imgData[i]) + " ";
     }
-    std::cout << std::endl;
   } else {
-    std::cout << "Image Data: None" << std::endl;
+    output += "No image data";
   }
+
+  std::cout << output << std::endl;
 }
