@@ -124,9 +124,8 @@ const int *Card::getImageData() const { return bitmap_; }
 void Card::setImageData(int *data) {
   if (data) {
     // Allocate memory for bitmap_ with the same size as data
-    bitmap_ = new int[80]; // Replace SIZE with the actual size of your bitmap
+    bitmap_ = new int[80]; 
 
-    // Copy the data from 'data' to 'bitmap_'
     for (int i = 0; i < 80; i++) {
       bitmap_[i] = data[i];
     }

@@ -41,7 +41,7 @@ void ActionCard::Print() const {
   const int *imgData = getImageData();
   std::cout << "Card:" << std::endl;
   if (imgData) {
-    for (int i = 0; imgData[i] != 0; i++) {
+    for (int i = 0; i < 80; i++) {
       std::cout << imgData[i] << " ";
     }
     std::cout << std::endl;
