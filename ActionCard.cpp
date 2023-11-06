@@ -7,13 +7,13 @@
 ActionCard::ActionCard() {
   setType(ACTION_CARD);
   setInstruction("");
-  setImageData(nullptr);
+  setImageData(nullptr); // Ensure bitmap_ is initialized to nullptr
   setDrawn(false);
 }
 
 bool ActionCard::isPlayable() {
   bool drawn = getDrawn();
-  if (getDrawn() == false) {
+  if (drawn == false) {
     return false;
   }
 
@@ -35,18 +35,17 @@ bool ActionCard::isPlayable() {
 }
 
 void ActionCard::Print() const {
-  std::string output = "Type: " + getType() + "\n";
-  output += "Instruction: " + getInstruction() + "\n";
+  std::cout << "Type: " << getType() << std::endl;
+  std::cout << "Instruction: " << getInstruction() << std::endl;
 
   const int *imgData = getImageData();
-  output += "Card:\n";
+  std::cout << "Card:" << std::endl;
   if (imgData) {
     for (int i = 0; imgData[i] != 0; i++) {
-      output += std::to_string(imgData[i]) + " ";
+      std::cout << imgData[i] << " ";
     }
+    std::cout << std::endl;
   } else {
-    output += "No image data";
+    std::cout << "No image data" << std::endl;
   }
-
-  std::cout << output << std::endl;
 }

@@ -1,37 +1,37 @@
-// Shelly Masih
-// CSCI 335
+// // Shelly Masih
+// // CSCI 335
 
-#include "Deck.hpp"
+// #include "Deck.hpp"
 
-Deck::Deck() { //Construct a new Deck object
+// Deck::Deck() { //Construct a new Deck object
 
-}
+// }
 
-Deck::~Deck() { // Destroy the Deck object
+// Deck::~Deck() { // Destroy the Deck object
 
 
-}
+// }
 
-void  Deck::AddCard(const CardType& card)  {
+// void  Deck::AddCard(const CardType& card)  {
 
-}
+// }
 
-CardType&& Deck::Draw() {
+// CardType&& Deck::Draw() {
 
-}
+// }
 
-bool Deck::isEmpty() {
+// bool Deck::isEmpty() {
 
-}
+// }
 
-void Deck::Shuffle() {
+// void Deck::Shuffle() {
 
-}
+// }
 
-int Deck::getSize() {
+// int Deck::getSize() {
 
-}
+// }
 
-std::vector<CardType> Deck::getDeck() const {
+// std::vector<CardType> Deck::getDeck() const {
     
-}
+// }
