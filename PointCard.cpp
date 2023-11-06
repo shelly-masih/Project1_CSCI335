@@ -2,23 +2,27 @@
 
 PointCard::PointCard() {
   setType(POINT_CARD);
-  setInstruction("");
-  setImageData(nullptr);
+  setInstruction("0");   // Initialize points to 0
+  setImageData(nullptr); // No image data for a PointCard
   setDrawn(false);
 }
 
 bool PointCard::isPlayable() {
   bool drawn = getDrawn();
-  std::string instruction = getInstruction();
+  const std::string &instruction = getInstruction();
 
-  if (drawn) {
-    try {
-      int points = std::stoi(instruction);
-      return true;
+  bool isNumeric = true; // Assume the instruction is numeric
 
-    } catch (const std::invalid_argument &e) {
-      std::cout << "Invalid Argument: " << e.what() << std::endl;
+  for (char c : instruction) {
+    if (!std::isdigit(c)) {
+      isNumeric = false;
+      break;
     }
+  }
+
+  if (drawn && isNumeric) {
+    int points = std::stoi(instruction);
+    return (points >= 0);
   }
 
   return false;
@@ -29,13 +33,13 @@ void PointCard::Print() const {
   std::cout << "Points: " << getInstruction() << std::endl;
 
   const int *imgData = getImageData();
+  std::cout << "Card:" << std::endl;
   if (imgData) {
-    std::cout << "Image Data: ";
-    for (int i = 0; imgData[i] != 0; i++) {
+    for (int i = 0; i < 80; i++) {
       std::cout << imgData[i] << " ";
     }
     std::cout << std::endl;
   } else {
-    std::cout << "Image Data: None" << std::endl;
+    std::cout << "No image data" << std::endl;
   }
 }
