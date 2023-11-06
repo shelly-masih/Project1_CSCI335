@@ -35,18 +35,17 @@ bool ActionCard::isPlayable() {
 }
 
 void ActionCard::Print() const {
-  std::string output = "Type: " + getType() + "\n";
-  output += "Instruction: " + getInstruction() + "\n";
+  std::cout << "Type: " << getType() << std::endl;
+  std::cout << "Instruction: " << getInstruction() << std::endl;
 
   const int *imgData = getImageData();
+  std::cout << "Card:" << std::endl;
   if (imgData) {
-    output += "Image Data: ";
     for (int i = 0; i < 80; i++) {
-      output += std::to_string(imgData[i]) + " ";
+      std::cout << imgData[i] << " ";
     }
+    std::cout << std::endl;
   } else {
-    output += "No image data";
+    std::cout << "No image data" << std::endl;
   }
-
-  std::cout << output << std::endl;
 }
