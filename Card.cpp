@@ -122,16 +122,7 @@ void Card::setInstruction(const std::string &instruction) {
 const int *Card::getImageData() const { return bitmap_; }
 
 void Card::setImageData(int *data) {
-  if (data) {
-    // Allocate memory for bitmap_ with the same size as data
-    bitmap_ = new int[80]; 
-
-    for (int i = 0; i < 80; i++) {
-      bitmap_[i] = data[i];
-    }
-  } else {
-    bitmap_ = nullptr;
-  }
+  bitmap_ = data;
 }
 
 bool Card::getDrawn() const { return drawn_; }
