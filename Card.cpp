@@ -103,9 +103,9 @@ Card::Card() { // default constructor
 
 std::string Card::getType() const { // return string of card type
   if (cardType_ == POINT_CARD) {
-    return "Point Card";
+    return "POINT_CARD";
   } else {
-    return "Action Card";
+    return "ACTION_CARD";
   }
 }
 
@@ -124,7 +124,7 @@ const int *Card::getImageData() const { return bitmap_; }
 void Card::setImageData(int *data) {
   if (data) {
     // Allocate memory for bitmap_ with the same size as data
-    bitmap_ = new int[80]; 
+    bitmap_ = new int[80];
 
     for (int i = 0; i < 80; i++) {
       bitmap_[i] = data[i];
