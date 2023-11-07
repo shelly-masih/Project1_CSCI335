@@ -7,7 +7,7 @@
 ActionCard::ActionCard() {
   setType(ACTION_CARD);
   setInstruction("");
-  setImageData(nullptr); // Ensure bitmap_ is initialized to nullptr
+  setImageData(nullptr); 
   setDrawn(false);
 }
 
@@ -19,8 +19,8 @@ bool ActionCard::isPlayable() {
 
   const std::string &instruction = getInstruction();
 
-  std::regex drawRegex("DRAW (\\d+) CARD(S)");
-  std::regex playRegex("PLAY (\\d+) CARD(S)");
+  std::regex drawRegex(R"(DRAW (\d+) CARD\(S\))");
+  std::regex playRegex(R"(PLAY (\d+) CARD\(S\))");
   std::regex reverseRegex("REVERSE HAND");
   std::regex sRegex("SWAP HAND WITH OPPONENT");
 
