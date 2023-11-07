@@ -26,8 +26,7 @@ Hand::Hand(Hand &&other) { // move constructor
 }
 
 Hand &Hand::operator=(Hand &&other) {
-  if (this != &other) { // Check for self-assignment
-    // Move the contents of other.cards_ to this->cards_
+  if (this != &other) { 
     cards_ = std::move(other.cards_);
   }
   return *this;
@@ -35,7 +34,11 @@ Hand &Hand::operator=(Hand &&other) {
 
 const std::deque<PointCard> &Hand::getCards() const { return cards_; }
 
-void Hand::addCard(PointCard &&card) { cards_.push_back(std::move(card)); }
+void Hand::addCard(PointCard &&card) {
+  card.setDrawn(true);
+  ;
+  cards_.push_back(std::move(card));
+}
 
 bool Hand::isEmpty() const { return cards_.empty(); }
 
