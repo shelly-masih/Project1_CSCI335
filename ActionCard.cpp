@@ -19,8 +19,8 @@ bool ActionCard::isPlayable() {
 
   const std::string &instruction = getInstruction();
 
-  std::regex drawRegex("DRAW (\\d+) CARD(S)?");
-  std::regex playRegex("PLAY (\\d+) CARD(S)?");
+  std::regex drawRegex("DRAW (\\d+) CARD(S)");
+  std::regex playRegex("PLAY (\\d+) CARD(S)");
   std::regex reverseRegex("REVERSE HAND");
   std::regex sRegex("SWAP HAND WITH OPPONENT");
 
