@@ -81,7 +81,7 @@ Card &Card::operator=(Card &&rhs) {
 
     // Perform a deep copy of the bitmap data
     if (rhs.bitmap_) {
-      bitmap_ = new int[80]; // Replace 80 with the actual size of your bitmap
+      bitmap_ = new int[80]; 
       for (int i = 0; i < 80; i++) {
         bitmap_[i] = rhs.bitmap_[i];
       }
