@@ -1,26 +1,29 @@
+// Shelly Masih
+// CSCI 335
+
 #include "PointCard.hpp"
 
-PointCard::PointCard() {
+PointCard::PointCard() { // construct a new point card object 
   setType(POINT_CARD);
-  setInstruction("0");   // Initialize points to 0
-  setImageData(nullptr); // No image data for a PointCard
+  setInstruction("0");   
+  setImageData(nullptr); 
   setDrawn(false);
 }
 
-bool PointCard::isPlayable() {
+bool PointCard::isPlayable() { // return true if card is playable
   bool drawn = getDrawn();
   const std::string &instruction = getInstruction();
 
-  bool isNumeric = true; // Assume the instruction is numeric
+  bool is_number = true; 
 
-  for (char c : instruction) {
-    if (!std::isdigit(c)) {
-      isNumeric = false;
+  for (char x : instruction) {
+    if (!std::isdigit(x)) {
+        is_number = false;
       break;
     }
   }
 
-  if (drawn && isNumeric) {
+  if (drawn && is_number) {
     int points = std::stoi(instruction);
     return (points >= 0);
   }
@@ -28,7 +31,7 @@ bool PointCard::isPlayable() {
   return false;
 }
 
-void PointCard::Print() const {
+void PointCard::Print() const { // print point card information 
   std::cout << "Type: " << getType() << std::endl;
   std::cout << "Points: " << getInstruction() << std::endl;
 

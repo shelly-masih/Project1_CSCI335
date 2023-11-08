@@ -4,14 +4,14 @@
 #include "ActionCard.hpp"
 #include <iostream>
 
-ActionCard::ActionCard() {
+ActionCard::ActionCard() { // construct new action card object
   setType(ACTION_CARD);
   setInstruction("");
-  setImageData(nullptr); 
+  setImageData(nullptr);
   setDrawn(false);
 }
 
-bool ActionCard::isPlayable() {
+bool ActionCard::isPlayable() { // return true if action card is playable
   bool drawn = getDrawn();
   if (drawn == false) {
     return false;
@@ -34,7 +34,7 @@ bool ActionCard::isPlayable() {
   return false;
 }
 
-void ActionCard::Print() const {
+void ActionCard::Print() const { // print action card information 
   std::cout << "Type: " << getType() << std::endl;
   std::cout << "Instruction: " << getInstruction() << std::endl;
 
